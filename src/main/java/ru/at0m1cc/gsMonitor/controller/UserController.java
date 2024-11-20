@@ -14,6 +14,7 @@ public class UserController {
 
     @GetMapping("/so")
     public String get(Model model) {
+        // model.addAttribute("lastVersionGrandSmeta", )
         model.addAttribute("users", userService.getUsers());
         return "so";
     }

@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="styles/styles.css">
     <script src="scripts/jquery-3.7.1.min.js"></script>
+    <script src="scripts/jquery.bpopup.js"></script>
+    <script src="scripts/so.js"></script>
     <title></title>
 </head>
 <body>
@@ -12,15 +14,17 @@
 <div id="divContent">
     <div th:replace="~{index :: navigation}"></div>    
     <div>
-        <table class="tableMain">
+        <p id="allSO" class="pButton" onclick="showAllSO()">Весь сметный отдел (Нажмите чтобы размернуть\свернуть)</p>
+        <!--Таблица со всеми сметчиками-->
+        <table class="tableMain" id="tableAllSO">
             <thead>
                 <tr>
-                    <th>ФИО</th>
+                    <th><p>ФИО</p></th>
                     <th>Группа</th>
                     <th>Имя компьютера</th>
-                    <th>Версия гранд сметы</th>
-                    <th>Дата обновления</th>
-                    <th>Номер ключа</th>
+                    <th> Версия гранд сметы </th>
+                    <th> Дата обновления </th>
+                    <th> Номер ключа </th>
                     <th>Заметка</th>
                 </tr>
         </thead>
@@ -43,6 +47,7 @@
             </tr>
         </tbody>
     </table>
+    <p id="allSO" class="pButton" onclick="showAllSO()"> (Нажмите чтобы размернуть\свернуть)</p>
 </div>
 </div>
 </body>
