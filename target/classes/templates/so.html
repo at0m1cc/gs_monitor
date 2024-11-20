@@ -14,6 +14,7 @@
 <div id="divContent">
     <div th:replace="~{index :: navigation}"></div>    
     <div>
+        <p style="margin-left: 5px; font-size: 18px;">Последняя версия Grand Smeta на текущий момент: [[${lastVersionGrandSmeta}]]</p>
         <p id="allSO" class="pButton" onclick="showAllSO()">Весь сметный отдел (Нажмите чтобы размернуть\свернуть)</p>
         <!--Таблица со всеми сметчиками-->
         <table class="tableMain" id="tableAllSO">
@@ -36,7 +37,7 @@
                 <td th:text = ${user.getHostname()}></td>
                 <td th:switch="${user.getGrandSmeta()}">
                     <p th:case="null">Нет данных</p>
-                    <p th:case="*" th:each="gs : ${user.getGrandSmeta()}" th:text="${gs.getSoftVersion()}"></p>
+                    <p th:case="*" th:each="gs : ${user.getGrandSmeta()}" th:text="${gs.getSoftVersion()}" ></p>
                 </td>
                 <td th:switch = "${user.getDateUpdate()}">
                     <p th:case="null">Нет данных</p>

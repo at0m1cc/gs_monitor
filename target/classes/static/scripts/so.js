@@ -1,8 +1,8 @@
 function showAllSO(){
-    if($("#tableAllSO").css("visibility") == "hidden"){
-        $("#tableAllSO").css("visibility", "visible");
+    if($("#tableAllSO").css("display") == "none"){
+        $("#tableAllSO").css("display", "block");
     }
     else{
-        $("#tableAllSO").css("visibility", "hidden");
+        $("#tableAllSO").css("display", "none");
     }
 }

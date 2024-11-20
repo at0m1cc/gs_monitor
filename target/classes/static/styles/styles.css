@@ -40,9 +40,10 @@ p{
 }
 #divContent{
     display: flex;
+    min-height: 100%;
 }
 #tableAllSO{
-    visibility: hidden;
+    display: none;
 }
 .buttonMain{
     color: #ffffff;
