@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="styles/styles.css">
+    <script src="scripts/jquery-3.7.1.min.js"></script>
+    <title></title>
+</head>
+<body>
+<div th:replace="~{index :: head}"></div>    
+<div id="divContent">
+    <div th:replace="~{index :: navigation}"></div>    
+    <div>
+        <table class="tableMain">
+            <thead>
+                <tr>
+                    <th>ФИО</th>
+                    <th>Группа</th>
+                    <th>Имя компьютера</th>
+                    <th>Версия гранд сметы</th>
+                    <th>Дата обновления</th>
+                    <th>Номер ключа</th>
+                    <th>Заметка</th>
+                </tr>
+        </thead>
+        <!--Тут происходит заполнение таблицы исходя из списка пользователей полученного с контроллера UserController-->
+        <tbody id="tableBody">
+            <tr th:each="user : ${users}">
+                <td th:text = ${user.getName()}></td>
+                <td th:text = ${user.getGroupUser()}></td>
+                <td th:text = ${user.getHostname()}></td>
+                <td th:switch="${user.getGrandSmeta()}">
+                    <p th:case="null">Нет данных</p>
+                    <p th:case="*" th:each="gs : ${user.getGrandSmeta()}" th:text="${gs.getSoftVersion()}"></p>
+                </td>
+                <td th:switch = "${user.getDateUpdate()}">
+                    <p th:case="null">Нет данных</p>
+                    <p th:case="*" th:text="${user.getDateUpdate()}"></p>
+                </td>
+                <td th:each = "key : ${user.getKey()}" th:text=${key.getNumberForKey()}></td>
+                <td th:text = ${user.getNote()}></td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+</div>
+</body>
+</html>

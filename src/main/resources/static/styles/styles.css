@@ -1,0 +1,44 @@
+body{
+    margin: 0;
+    background: #2f353b;
+}
+#h1Header{
+    font-family: sans-serif;
+    margin-left: 10px;
+}
+#divHead{
+    background: #151719;
+    color: #FFFFFF;
+    display: flex;
+}
+#divNavigation{
+    width: 10%;
+    height: 93vh;
+    background: #0a0a0a;
+}
+#buttonNavigation{
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 20px;
+    height: 65px;
+    transition: 0.2s;
+}
+#divContent{
+    display: flex;
+}
+.buttonMain{
+    color: #ffffff;
+    background: #0a0a0a;
+}
+.tableMain{
+    color: #ffffff;
+    border: solid, 1px, #ffffff;
+    border-radius: 5px;
+    font-family: sans-serif;
+    text-align: center;
+}
+#buttonNavigation:hover{
+    background: #272829;
+    
+}

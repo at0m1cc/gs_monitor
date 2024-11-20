@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: ${DATA_BASE_CON}
+    username: ${USERNAME_DATA_BASE}
+    password: ${PASSWORD_DATA_BASE}
+    driver-class-name: org.postgresql.Driver
+server:
+  port: 9000

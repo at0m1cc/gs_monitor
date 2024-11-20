@@ -1,0 +1,21 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "GsMonitorApplication",
+            "request": "launch",
+            "mainClass": "ru.at0m1cc.gsMonitor.GsMonitorApplication",
+            "projectName": "gs_monitor"
+        },
+        {
+            "type": "java",
+            "name": "Spring Boot-GsMonitorApplication<gs_monitor>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "ru.at0m1cc.gs_monitor.GsMonitorApplication",
+            "projectName": "gs_monitor",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
