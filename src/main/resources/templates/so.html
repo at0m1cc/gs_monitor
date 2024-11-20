@@ -23,9 +23,9 @@
                     <th><p>ФИО</p></th>
                     <th>Группа</th>
                     <th>Имя компьютера</th>
-                    <th> Версия гранд сметы </th>
-                    <th> Дата обновления </th>
-                    <th> Номер ключа </th>
+                    <th>Версия гранд сметы</th>
+                    <th>Дата обновления</th>
+                    <th>Номер ключа</th>
                     <th>Заметка</th>
                 </tr>
         </thead>
@@ -36,8 +36,21 @@
                 <td th:text = ${user.getGroupUser()}></td>
                 <td th:text = ${user.getHostname()}></td>
                 <td th:switch="${user.getGrandSmeta()}">
-                    <p th:case="null">Нет данных</p>
-                    <p th:case="*" th:each="gs : ${user.getGrandSmeta()}" th:text="${gs.getSoftVersion()}" ></p>
+                    <th:block th:case="null">
+                        <p style="color: #ff0033;">Нет данных</p>
+                    </th:block>
+                    <th:block th:case="*">
+                        <th:block  th:each="gs : ${user.getGrandSmeta()}" >
+                            <th:block th:switch="${gs.getSoftVersion}">
+                                <th:block th:case="${lastVersionGrandSmeta}">
+                                    <p th:text="${gs.getSoftVersion()}" style="color: #00ff7f;"></p>
+                                </th:block>
+                                <th:block th:case="*">
+                                    <p th:text="${gs.getSoftVersion()}" style="color: #ff0033;"></p>
+                                </th:block>
+                            </th:block>
+                        </th:block>
+                    </th:block>
                 </td>
                 <td th:switch = "${user.getDateUpdate()}">
                     <p th:case="null">Нет данных</p>
@@ -48,7 +61,7 @@
             </tr>
         </tbody>
     </table>
-    <p id="allSO" class="pButton" onclick="showAllSO()"> (Нажмите чтобы размернуть\свернуть)</p>
+    <!-- <p id="allSO" class="pButton" onclick="showAllSO()"> (Нажмите чтобы размернуть\свернуть)</p> -->
 </div>
 </div>
 </body>
