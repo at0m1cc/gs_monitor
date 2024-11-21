@@ -6,3 +6,6 @@ function showAllSO(){
         $("#tableAllSO").css("display", "none");
     }
 }
+function showModalGS(){
+    // $("#divModalChangeGS").bPopup();
+}

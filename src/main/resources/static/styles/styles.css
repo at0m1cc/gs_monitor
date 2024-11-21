@@ -68,3 +68,6 @@ p{
     background: #272829;
     
 }
+td:hover{
+    border: 5px solid;
+}

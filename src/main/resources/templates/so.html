@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/css" rel="stylesheet" href="styles/styles.css">
-    <script src="scripts/jquery-3.7.1.min.js"></script>
-    <script src="scripts/jquery.bpopup.js"></script>
-    <script src="scripts/so.js"></script>
+    <script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script>
+    <script type="text/javascript" src="scripts/jquery.bpopup.js"></script>
+    <script type="text/javascript" src="scripts/so.js"></script>
     <title></title>
 </head>
 <body>
@@ -45,10 +45,10 @@
                             <th:block  th:each="gs : ${userInfo.getGrandSmeta()}" >
                                 <th:block th:switch="${gs.getSoftVersion}">
                                     <th:block th:case="${lastVersionGrandSmeta}">
-                                        <p th:text="${gs.getSoftVersion()}" style="color: #00ff7f;"></p>
+                                        <p ondblclick="showModalGS()" th:text="${gs.getSoftVersion()}" style="color: #00ff7f;"></p>
                                     </th:block>
                                     <th:block th:case="*">
-                                        <p th:text="${gs.getSoftVersion()}" style="color: #fbff00;"></p>
+                                        <p ondblclick="showModalGS()" th:text="${gs.getSoftVersion()}" style="color: #fbff00;"></p>
                                     </th:block>
                                 </th:block>
                             </th:block>
@@ -65,6 +65,10 @@
     </table>
     <!-- <p id="allSO" class="pButton" onclick="showAllSO()"> (Нажмите чтобы размернуть\свернуть)</p> -->
 </div>
+</div>
+<!--Модалки будут ниже, пока сделаю так-->
+<div id="divModalChangeGS">
+<p>dsadsa</p>
 </div>
 </body>
 </html>
