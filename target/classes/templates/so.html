@@ -46,7 +46,7 @@
                                     <p th:text="${gs.getSoftVersion()}" style="color: #00ff7f;"></p>
                                 </th:block>
                                 <th:block th:case="*">
-                                    <p th:text="${gs.getSoftVersion()}" style="color: #ff0033;"></p>
+                                    <p th:text="${gs.getSoftVersion()}" style="color: #fbff00;"></p>
                                 </th:block>
                             </th:block>
                         </th:block>
@@ -56,7 +56,6 @@
                     <p th:case="null">Нет данных</p>
                     <p th:case="*" th:text="${user.getDateUpdate()}"></p>
                 </td>
-                <td th:each = "key : ${user.getKey()}" th:text=${key.getNumberForKey()}></td>
                 <td th:text = ${user.getNote()}></td>
             </tr>
         </tbody>

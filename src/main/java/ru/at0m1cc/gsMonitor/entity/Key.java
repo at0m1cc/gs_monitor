@@ -1,10 +1,14 @@
 package ru.at0m1cc.gsMonitor.entity;
 
+import java.time.LocalDate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
@@ -26,4 +30,11 @@ public class Key {
     private String certificationSertificate;
     @Column(name = "note")
     private String note;
+    @OneToOne
+    @JoinColumn(name = "id_user")
+    private User user;
+    @Column(name = "date_of_issue")
+    private LocalDate dateOfIssue;
+    @Column(name = "path_statement")
+    private String pathStatement;
 }

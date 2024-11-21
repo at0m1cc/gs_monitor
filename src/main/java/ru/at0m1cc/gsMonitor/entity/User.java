@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.Getter;
@@ -33,9 +34,6 @@ public class User {
     private GrandSmeta grandSmeta;
     @Column(name = "date_update")
     private LocalDate dateUpdate;
-    @OneToOne
-    @JoinColumn(name = "id_grand_smeta_key")
-    private Key key;
     @Column(name = "note")
     private String note;
 }
