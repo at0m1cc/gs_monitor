@@ -6,19 +6,19 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import ru.at0m1cc.gsMonitor.service.GrandSmetaService;
-import ru.at0m1cc.gsMonitor.service.UserService;
+import ru.at0m1cc.gsMonitor.service.KeyService;
 
 @Controller
 public class UserController {
     @Autowired
-    private UserService userService;
+    private KeyService keyService;
     @Autowired
     private GrandSmetaService grandSmetaService;
 
     @GetMapping("/so")
     public String get(Model model) {
         model.addAttribute("lastVersionGrandSmeta", grandSmetaService.getLastVersion());
-        model.addAttribute("users", userService.getUsers());
+        model.addAttribute("keys", keyService.getKeyAndUser());
         return "so";
     }
     

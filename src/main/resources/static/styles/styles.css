@@ -50,6 +50,7 @@ p{
     background: #0a0a0a;
 }
 .tableMain{
+    margin-left: 5px;
     color: #ffffff;
     border: solid, 1px, #ffffff;
     font-family: sans-serif;
