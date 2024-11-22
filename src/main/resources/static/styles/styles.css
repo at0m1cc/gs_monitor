@@ -45,6 +45,9 @@ p{
 #tableAllSO{
     display: none;
 }
+#divModalChangeGS{
+    display: none;
+}
 .buttonMain{
     color: #ffffff;
     background: #0a0a0a;
@@ -61,12 +64,14 @@ p{
     cursor: default;
     margin-left: 5px;
 }
+.modalMain{
+    
+}
 .pButton:hover{
     color: #b0c4de;
 }
 #buttonNavigation:hover{
     background: #272829;
-    
 }
 td:hover{
     border: 5px solid;

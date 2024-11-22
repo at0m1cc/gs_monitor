@@ -37,7 +37,7 @@
                     <td th:text = ${userInfo.getName()}></td>
                     <td th:text = ${userInfo.getGroupUser()}></td>
                     <td th:text = ${userInfo.getHostname()}></td>
-                    <td th:switch="${userInfo.getGrandSmeta()}">
+                    <td th:switch="${userInfo.getGrandSmeta()}" th:ondblclick="showModalGS([[${userInfo.getName()}]], [[${userInfo.getGrandSmeta()}]]);">
                         <th:block th:case="null">
                             <p style="color: #ff0033;">Нет данных</p>
                         </th:block>
@@ -45,10 +45,10 @@
                             <th:block  th:each="gs : ${userInfo.getGrandSmeta()}" >
                                 <th:block th:switch="${gs.getSoftVersion}">
                                     <th:block th:case="${lastVersionGrandSmeta}">
-                                        <p ondblclick="showModalGS()" th:text="${gs.getSoftVersion()}" style="color: #00ff7f;"></p>
+                                        <p th:text="${gs.getSoftVersion()}" style="color: #00ff7f;" ></p>
                                     </th:block>
                                     <th:block th:case="*">
-                                        <p ondblclick="showModalGS()" th:text="${gs.getSoftVersion()}" style="color: #fbff00;"></p>
+                                        <p th:text="${gs.getSoftVersion()}" style="color: #fbff00;"></p>
                                     </th:block>
                                 </th:block>
                             </th:block>
@@ -66,9 +66,6 @@
     <!-- <p id="allSO" class="pButton" onclick="showAllSO()"> (Нажмите чтобы размернуть\свернуть)</p> -->
 </div>
 </div>
-<!--Модалки будут ниже, пока сделаю так-->
-<div id="divModalChangeGS">
-<p>dsadsa</p>
-</div>
+<div th:replace="~{modal :: divModalChangeGS}"></div>
 </body>
 </html>

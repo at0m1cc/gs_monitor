@@ -6,6 +6,15 @@ function showAllSO(){
         $("#tableAllSO").css("display", "none");
     }
 }
-function showModalGS(){
-    // $("#divModalChangeGS").bPopup();
+function showModalGS(userName,GrandSmetaVersion){
+    $("#userName").empty();
+    $("#gs").empty();
+    $("#divModalChangeGS").bPopup();
+    $("#userName").text(userName);
+    if(GrandSmetaVersion != null){
+        $("#gs").append(GrandSmetaVersion.softVersion);
+    }
+    else{
+        $("#gs").append("Нет данных");
+    }
 }
