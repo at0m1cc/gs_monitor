@@ -19,6 +19,7 @@ public class UserController {
     public String get(Model model) {
         model.addAttribute("lastVersionGrandSmeta", grandSmetaService.getLastVersion());
         model.addAttribute("keys", keyService.getKeyAndUser());
+        model.addAttribute("grandSmeta", grandSmetaService.getAllGrandSmeta());
         return "so";
     }
     

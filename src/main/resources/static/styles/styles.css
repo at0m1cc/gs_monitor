@@ -48,6 +48,22 @@ p{
 #divModalChangeGS{
     display: none;
 }
+#buttonUpdateInfoGs{
+    margin-top: 20px;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    font-family: sans-serif;
+    font-size: 20px;
+}
+.infoUpdateGSSelectAndInput{
+    font-family: sans-serif;
+    font-size: 20px;
+    background: #2f353b;
+    color: #ffffff;
+    border-radius: 5px;
+    border: solid 1px;
+}
 .buttonMain{
     color: #ffffff;
     background: #0a0a0a;
@@ -65,14 +81,16 @@ p{
     margin-left: 5px;
 }
 .modalMain{
-    
+    background: #2f353b;
+    padding: 50px;
+    border-radius: 15px;
 }
 .pButton:hover{
     color: #b0c4de;
 }
-#buttonNavigation:hover{
-    background: #272829;
-}
 td:hover{
     border: 5px solid;
+}
+.buttonMain:hover{
+    background: #272829;
 }

@@ -12,7 +12,7 @@ function showModalGS(userName,GrandSmetaVersion){
     $("#divModalChangeGS").bPopup();
     $("#userName").text(userName);
     if(GrandSmetaVersion != null){
-        $("#gs").append(GrandSmetaVersion.softVersion);
+        $("#gs").append("Текущая версия grand smeta: "+GrandSmetaVersion.softVersion);
     }
     else{
         $("#gs").append("Нет данных");

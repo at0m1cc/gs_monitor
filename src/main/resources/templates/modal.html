@@ -1,7 +1,15 @@
 <div class="modalMain" id="divModalChangeGS" th:fragment="divModalChangeGS">
-    <p>Изменить установленную версиб Grand Smeta</p>
+    <p><b>Изменить установленную версию Grand Smeta</b></p>
     <form method="POST" action="">
-        <p id="userName"></p>
-        <p id="gs">Текущая версия grand smeta: </p>
+        <p id="userName" name="userName"></p>
+        <p id="gs"></p>
+        <select class="infoUpdateGSSelectAndInput" name="changeGS">
+            <th:block th:each="gs : ${grandSmeta}">
+                <option th:text="${gs.getSoftVersion()}"></option>
+            </th:block>
+        </select>
+        <input class="infoUpdateGSSelectAndInput" type="date" name="dataUpdate" min="2016-01-01" max="2030-01-01">
+        <br>
+        <button id="buttonUpdateInfoGs" class="buttonMain" type="submit">Подтвердить</button>
     </form>
 </div>
