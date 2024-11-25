@@ -10,7 +10,7 @@ function showModalGS(userName,GrandSmetaVersion){
     $("#userName").empty();
     $("#gs").empty();
     $("#divModalChangeGS").bPopup();
-    $("#userName").text(userName);
+    $("#userName").val(userName);
     if(GrandSmetaVersion != null){
         $("#gs").append("Текущая версия grand smeta: "+GrandSmetaVersion.softVersion);
     }

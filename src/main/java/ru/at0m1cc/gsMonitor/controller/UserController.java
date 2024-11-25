@@ -34,13 +34,13 @@ public class UserController {
     }
 
     @PostMapping("/soUpdate")
-    public String postMethodName(Model model, @RequestParam(name = "userName") String userName, @RequestParam(name = "changeGS") String softversion, @RequestParam(name = "dataUpdate") LocalDate dataUpdate) {
+    public String updateUser(Model model, @RequestParam("userName") String userName, @RequestParam("changeGS") String softversion, @RequestParam("dataUpdate") LocalDate dataUpdate) {
         userService.updateUserGSVersion(userName, softversion);
-        if(dataUpdate == null) {
+        if(dataUpdate.equals(LocalDate.of(2016, 1, 1))) { //Костыль проверяю на то заполнил ли пользователь инпут с датой, да да я дурак но мне пофик
             dataUpdate = LocalDate.now();
         }
         userService.updateUserDataUpdate(userName, dataUpdate);
-        return getUsers(model);
+        return "redirect:/soShow";
     }
     
     
