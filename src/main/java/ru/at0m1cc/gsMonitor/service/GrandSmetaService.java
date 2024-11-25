@@ -16,7 +16,12 @@ public class GrandSmetaService {
     public String getLastVersion(){
         return grandSmetaRepository.findMaxId().getSoftVersion();
     }
+
     public List<GrandSmeta> getAllGrandSmeta(){
         return grandSmetaRepository.findAll();
+    }
+
+    public GrandSmeta getGrandSmetaByVersion(String softVersion){
+        return grandSmetaRepository.findBySoftVersion(softVersion);
     }
 }
