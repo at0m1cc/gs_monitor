@@ -1,6 +1,5 @@
 package ru.at0m1cc.gsMonitor.controller;
 
-import java.sql.Struct;
 import java.time.LocalDate;
 
 import org.springframework.beans.factory.annotation.Autowired;
