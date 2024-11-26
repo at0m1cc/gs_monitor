@@ -3,79 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link type="text/css" rel="stylesheet" href="styles/styles.css">
-    <script type="text/javascript" src="scripts/jquery-3.7.1.min.js"></script>
-    <script type="text/javascript" src="scripts/jquery.bpopup.js"></script>
-    <script type="text/javascript" src="scripts/so.js"></script>
-    <title></title>
+    <title>Сметный отдел</title>
 </head>
 <body>
-<div th:replace="~{index :: head}"></div>    
+<div th:replace="~{index :: head}"></div>
 <div id="divContent">
-    <div th:replace="~{index :: navigation}"></div>    
+    <div th:replace="~{index :: navigation}"></div>
     <div>
         <p style="margin-left: 5px; font-size: 18px;">Последняя версия Grand Smeta на текущий момент: [[${lastVersionGrandSmeta}]]</p>
-        <p id="allSO" class="pButton" onclick="showAllSO()">Весь сметный отдел (Нажмите чтобы размернуть\свернуть)</p>
-        <!--Таблица со всеми сметчиками-->
-        <table class="tableMain" id="tableAllSO">
-            <thead>
-                <tr>
-                    <th>Номер ключа</th>
-                    <th><p>ФИО</p></th>
-                    <th>Группа</th>
-                    <th>Имя компьютера</th>
-                    <th>Версия гранд сметы</th>
-                    <th>Дата обновления</th>
-                    <th>Заметка</th>
-                </tr>
-        </thead>
-        <!--Тут происходит заполнение таблицы исходя из списка пользователей полученного с контроллера UserController-->
-        <tbody id="tableBody">
-            <tr th:each="key : ${keys}">
-                <td th:text="${key.getNumberForKey()}"></td>
-                <th:block th:each="userInfo : ${key.getUser()}">
-                    <td th:text = ${userInfo.getName()}></td>
-                    <td th:text = ${userInfo.getGroupUser()}></td>
-                    <td th:text = ${userInfo.getHostname()}></td>
-                    <td th:switch="${userInfo.getGrandSmeta()}" th:ondblclick="showModalGS([[${userInfo.getName()}]], [[${userInfo.getGrandSmeta()}]]);">
-                        <th:block th:case="null">
-                            <p style="color: #ff0033;">Нет данных</p>
-                        </th:block>
-                        <th:block th:case="*">
-                            <th:block  th:each="gs : ${userInfo.getGrandSmeta()}" >
-                                <th:block th:switch="${gs.getSoftVersion}">
-                                    <th:block th:case="${lastVersionGrandSmeta}">
-                                        <p th:text="${gs.getSoftVersion()}" style="color: #00ff7f;" ></p>
-                                    </th:block>
-                                    <th:block th:case="*">
-                                        <p th:text="${gs.getSoftVersion()}" style="color: #fbff00;"></p>
+        <details>
+            <summary>Сметный отдел</summary>
+            <br>
+            <table class="tableMain">
+                <thead>
+                    <tr>
+                        <th>Номер ключа</th>
+                        <th><p>ФИО</p></th>
+                        <th>Группа</th>
+                        <th>Имя компьютера</th>
+                        <th>Версия гранд сметы</th>
+                        <th>Дата обновления</th>
+                        <th>Заметка</th>
+                    </tr>
+                </thead>
+            <!--Тут происходит заполнение таблицы исходя из списка пользователей полученного с контроллера UserController-->
+                <tbody id="tableBody">
+                <tr th:each="key : ${keys}">
+                    <td th:text="${key.getNumberForKey()}"></td>
+                    <th:block th:each="userInfo : ${key.getUser()}">
+                        <td th:text = ${userInfo.getName()}></td>
+                        <td th:text = ${userInfo.getGroupUser()}></td>
+                        <td th:text = ${userInfo.getHostname()}></td>
+                        <td th:switch="${userInfo.getGrandSmeta()}" th:ondblclick="showModalGS([[${userInfo.getName()}]], [[${userInfo.getGrandSmeta()}]]);">
+                            <th:block th:case="null">
+                                <button class="pButton" style="color: #ff0033; margin: 0;">Нет данных</p>
+                            </th:block>
+                            <th:block th:case="*">
+                                <th:block  th:each="gs : ${userInfo.getGrandSmeta()}" >
+                                    <th:block th:switch="${gs.getSoftVersion}">
+                                        <th:block th:case="${lastVersionGrandSmeta}">
+                                            <button class="pButton" th:text="${gs.getSoftVersion()}" style="color: #00ff7f; margin: 0;" ></p>
+                                        </th:block>
+                                        <th:block th:case="*">
+                                            <button class="pButton" th:text="${gs.getSoftVersion()}" style="color: #fbff00; margin: 0;"></p>
+                                        </th:block>
                                     </th:block>
                                 </th:block>
                             </th:block>
-                        </th:block>
-                    </td>
-                    <td th:switch = "${userInfo.getDateUpdate()}">
-                        <p th:case="null">Нет данных</p>
-                        <p th:case="*" th:text="${userInfo.getDateUpdate()}"></p>
-                    </td>
-                    <td th:text = ${userInfo.getNote()}></td>
-                </th:block>
-            </tr>
-        </tbody>
-    </table>
-    <p id="allSO" class="pButton" onclick="">Группа смет №1</p>
-    <p id="allSO" class="pButton" onclick="">Группа смет №2</p>
-    <p id="allSO" class="pButton" onclick="">Группа смет №3</p>
-    <p id="allSO" class="pButton" onclick="">Группа смет №4</p>
-    <p id="allSO" class="pButton" onclick="">Группа смет №5</p>
-    <p id="allSO" class="pButton" onclick="">Группа смет №6</p> 
-    <p id="allSO" class="pButton" onclick="">Сектор смет</p> 
-    <p id="allSO" class="pButton" onclick="">Сектор ТЭО</p> 
-    <p id="allSO" class="pButton" onclick="">Сектор ПОС</p> 
-    <p id="allSO" class="pButton" onclick="">Группа ПОС №1</p> 
-    <p id="allSO" class="pButton" onclick="">Группа ПОС №2</p> 
-    <p id="allSO" class="pButton" onclick="">Начальник отдела</p> 
-</div>
+                        </td>
+                        <td th:switch = "${userInfo.getDateUpdate()}">
+                            <p th:case="null">Нет данных</p>
+                            <p th:case="*" th:text="${userInfo.getDateUpdate()}"></p>
+                        </td>
+                        <td th:text = ${userInfo.getNote()}></td>
+                    </th:block>
+                    </tr>
+                </tbody>
+            </table>
+        </details>
+    </div>
 </div>
 <div th:replace="~{modal :: divModalChangeGS}"></div>
 </body>

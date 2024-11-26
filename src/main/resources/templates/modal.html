@@ -1,7 +1,7 @@
 <div class="modalMain" id="divModalChangeGS" th:fragment="divModalChangeGS">
     <p><b>Изменить установленную версию Grand Smeta</b></p>
     <form method="POST" action="/soUpdate">
-        <input id="userName" name="userName">
+        <input id="userName" name="userName" readonly>
         <p id="gs"></p>
         <select class="infoUpdateGSSelectAndInput" name="changeGS">
             <th:block th:each="gs : ${grandSmeta}">
