@@ -37,4 +37,8 @@ public class Key {
     private LocalDate dateOfIssue;
     @Column(name = "path_statement")
     private String pathStatement;
+    @Column(name = "id_for_key_d")
+    private String idForKeyD;
+    @Column(name = "id_for_key_h")
+    private String idForKeyH;
 }
