@@ -102,6 +102,9 @@ summary{
 summary:hover{
     color: #b0c4de;
 }
+.pButton:hover{
+    color: #b0c4de;
+}
 td:hover{
     border: 5px solid;
 }

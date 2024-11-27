@@ -20,7 +20,6 @@
                         <th>Номер ключа</th>
                         <th><p>ФИО</p></th>
                         <th>Группа</th>
-                        <th>Имя компьютера</th>
                         <th>Версия гранд сметы</th>
                         <th>Дата обновления</th>
                         <th>Заметка</th>
@@ -33,10 +32,9 @@
                     <th:block th:each="userInfo : ${key.getUser()}">
                         <td th:text = ${userInfo.getName()}></td>
                         <td th:text = ${userInfo.getGroupUser()}></td>
-                        <td th:text = ${userInfo.getHostname()}></td>
                         <td th:switch="${userInfo.getGrandSmeta()}" th:ondblclick="showModalGS([[${userInfo.getName()}]], [[${userInfo.getGrandSmeta()}]]);">
                             <th:block th:case="null">
-                                <button class="pButton" style="color: #ff0033; margin: 0;">Нет данных</p>
+                                <button class="pButton" style="color: #ff0033; margin: 0;">Нет данных</button>
                             </th:block>
                             <th:block th:case="*">
                                 <th:block  th:each="gs : ${userInfo.getGrandSmeta()}" >
@@ -61,6 +59,29 @@
                 </tbody>
             </table>
         </details>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/0'">Сектор смет</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/1'">Группа смет №1</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/2'">Группа смет №2</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/3'">Группа смет №3</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/4'">Группа смет №4</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/5'">Группа смет №5</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/6'">Группа смет №6</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/POS'">Сектор ПОС</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/POS1'">Группа ПОС №1</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/POS2'">Группа ПОС №2</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/TEO'">Группа ТЭО</button>
+        <br>
+        <button class="pButton" style="margin-left: 12px; margin-top: 10px;" onclick="window.location = '/group/BOSS'">Начальник отдела</button>
     </div>
 </div>
 <div th:replace="~{modal :: divModalChangeGS}"></div>

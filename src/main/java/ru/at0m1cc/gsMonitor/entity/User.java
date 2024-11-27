@@ -26,8 +26,6 @@ public class User {
     private String name;
     @Column(name = "group_user")
     private String groupUser;
-    @Column(name = "hostname")
-    private String hostname;
     @OneToOne
     @JoinColumn(name = "id_grand_smeta_soft")
     private GrandSmeta grandSmeta;

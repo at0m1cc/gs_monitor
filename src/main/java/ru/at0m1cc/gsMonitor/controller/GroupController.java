@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class GroupController {
     
     @GetMapping("/{id}")
-    public String getGroupSO1(Model model, @PathVariable Integer id) {
+    public String getGroup(Model model, @PathVariable String id) {
         return null;
     }
     
